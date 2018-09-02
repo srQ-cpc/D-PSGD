@@ -5,7 +5,7 @@ Algorithm: Decentralized Parallel Stochastic Gradient Descent
 - Install PyTorch ([pytorch.org](http://pytorch.org))
 - GPU clusters with OpenMPI to communicate
 ## Training
-Use the code bellow to start a training process on one coo
+A 20-layer ResNet model and Cifar10 dataset are choosed for evaluation. Use the code bellow to start a training process on 1 coordinator node and 4 training nodes.
 ```bash
 mpirun -n 5 --hostfile hosts python PSGD.py --epochs 160 --lr 0.5
 ```
