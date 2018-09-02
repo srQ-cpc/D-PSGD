@@ -23,10 +23,8 @@ parser.add_argument('--lr', '--learning-rate', default=0.1, type=float,
 
 def coordinate(rank, world_size):
     output = open("DPSGD_output.txt", "w")
-    #print('Start coordinate  Total: %3d'%(world_size))
     args = parser.parse_args()
     model = resnet20()
-    #model = alexnet()
     model = model.cuda()
     model_flat = flatten_all(model)
     dist.broadcast(model_flat, world_size)
@@ -80,7 +78,6 @@ def run(rank, world_size):
 
 
     model = resnet20()
-    #model = alexnet()
     model = model.cuda()
     model_flat = flatten_all(model)
     dist.broadcast(model_flat, world_size)
@@ -90,9 +87,7 @@ def run(rank, world_size):
     # define loss function (criterion) and optimizer
     criterion = nn.CrossEntropyLoss().cuda()
 
-    optimizer = torch.optim.SGD(model.parameters(), lr=current_lr)
-    #optimizer = torch.optim.SGD(model.parameters(), lr=current_lr, weight_decay=0.0001)
-    #optimizer = torch.optim.SGD(model.parameters(), lr=current_lr, momentum=0.9 , weight_decay=0.0001)
+    optimizer = torch.optim.SGD(model.parameters(), lr=current_lr, weight_decay=0.0001)
 
     cudnn.benchmark = True
 
@@ -179,7 +174,6 @@ def validate(val_loader, model, criterion):
 
     # switch to evaluate mode
     model.eval()
-    #model.train()
 
     for i, (input, target) in enumerate(val_loader):
         input_var = torch.autograd.Variable(input.cuda())
@@ -281,7 +275,6 @@ if __name__ == '__main__':
     dist.init_process_group('mpi')
     rank = dist.get_rank()
     world_size = dist.get_world_size()
-    #run(rank, world_size)
     if rank == world_size - 1:
         coordinate(rank, world_size - 1)
     else:
