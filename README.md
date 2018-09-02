@@ -9,4 +9,7 @@ A 20-layer ResNet model and Cifar10 dataset are choosed for evaluation. Use the 
 ```bash
 mpirun -n 5 --hostfile hosts python PSGD.py --epochs 160 --lr 0.5
 ```
+## Results
+Top1 accuracy rate on test dataset is shown below.
+![cifar](utils/cifar.png)
 
