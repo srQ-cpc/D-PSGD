@@ -1,6 +1,6 @@
 # D-PSGD
 Algorithm: Decentralized Parallel Stochastic Gradient Descent   
-* Follow paper [Lian X, Zhang C, Zhang H, et al. Can decentralized algorithms outperform centralized algorithms? a case study for decentralized parallel stochastic gradient descent[C]//Advances in Neural Information Processing Systems. 2017: 5330-5340.]  
+* Follow paper [Can decentralized algorithms outperform centralized algorithms? a case study for decentralized parallel stochastic gradient descent (Lian et al. 2017)](http://papers.nips.cc/paper/7117-can-decentralized-algorithms-outperform-centralized-algorithms-a-case-study-for-decentralized-parallel-stochastic-gradient-descent.pdf) 
 ## Requirements
 - Install PyTorch ([pytorch.org](http://pytorch.org))
 - GPU clusters with OpenMPI to communicate
